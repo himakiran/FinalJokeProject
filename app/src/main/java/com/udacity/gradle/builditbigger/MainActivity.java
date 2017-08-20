@@ -6,6 +6,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+import com.google.android.gms.ads.MobileAds;
+import com.udacity.gradle.builditbigger.JavaJokes;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
     }
 
 
@@ -40,7 +43,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Toast.makeText(this, "derppp", Toast.LENGTH_SHORT).show();
+
+        //Toast.makeText(this, "derppp", Toast.LENGTH_SHORT).show();
+        JavaJokes javaJokes = new JavaJokes();
+        Toast.makeText(this,javaJokes.getJoke(),Toast.LENGTH_SHORT).show();
     }
 
 
