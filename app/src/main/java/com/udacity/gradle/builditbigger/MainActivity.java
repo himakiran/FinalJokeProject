@@ -9,9 +9,11 @@ import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
-import com.google.android.gms.ads.MobileAds;
 
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.udacity.gradle.javajokes.JavaJokes;
 import com.udacity.gradle.jokedisplaylibrary.JokeActivity;
 import com.udacity.gradle.builditbigger.EndpointsAsyncTask;
@@ -22,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+
+
     }
 
 
