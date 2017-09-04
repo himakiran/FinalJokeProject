@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,7 @@ import android.view.View;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.udacity.gradle.javajokes.JavaJokes;
 import com.udacity.gradle.jokedisplaylibrary.JokeActivity;
@@ -20,10 +22,15 @@ import com.udacity.gradle.builditbigger.EndpointsAsyncTask;
 
 public class MainActivity extends AppCompatActivity {
 
+    private InterstitialAd mInterstitialAd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
 
     }
@@ -61,7 +68,13 @@ public class MainActivity extends AppCompatActivity {
         String joke = javaJokes.getJoke();
         intent.putExtra(JokeActivity.JOKE_KEY, joke);
         startActivity(intent);
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
         new EndpointsAsyncTask().execute(new Pair<Context,String>(this,"Himakiran"));
+
     }
 
 

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 
 
@@ -20,6 +21,7 @@ public class MainActivityFragment extends Fragment {
 
     public String LOG_TAG = MainActivityFragment.class.getSimpleName();
 
+
     public MainActivityFragment() {
     }
 
@@ -27,6 +29,7 @@ public class MainActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         MobileAds.initialize(getContext(), "ca-app-pub-3940256099942544/63009781110");
+
         View root = inflater.inflate(R.layout.fragment_main, container, false);
         TextView textView = (TextView) root.findViewById(R.id.version);
         Boolean FREE = textView.getText().toString().equals("FREE VERSION");
