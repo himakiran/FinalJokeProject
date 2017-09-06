@@ -5,7 +5,10 @@ import android.os.Bundle;
 
 public class JokeActivity extends AppCompatActivity {
 
-    public static String JOKE_KEY = "JOKE";
+    public static String JOKE_ONE = "JOKE1";
+    public static String JOKE_TWO = "JOKE2";
+    public static String JOKE_THREE = "JOKE3";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

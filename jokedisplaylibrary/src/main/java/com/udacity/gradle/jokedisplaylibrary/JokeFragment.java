@@ -30,13 +30,43 @@ public class JokeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        TextView jokeTextView;
         View root = inflater.inflate(R.layout.fragment_joke, container, false);
         Intent intent = getActivity().getIntent();
-        String joke = intent.getStringExtra(JokeActivity.JOKE_KEY);
-        TextView jokeTextView = (TextView) root.findViewById(R.id.joke_textview);
-        if (joke != null && joke.length() != 0) {
-            jokeTextView.setText(joke);
+        Boolean PAID = intent.getBooleanExtra("PAID",false);
+        if(PAID){
+            String joke1 = intent.getStringExtra(JokeActivity.JOKE_ONE);
+            String joke2 = intent.getStringExtra(JokeActivity.JOKE_TWO);
+            String joke3 = intent.getStringExtra(JokeActivity.JOKE_THREE);
+
+            if (joke1 != null && joke1.length() != 0) {
+                jokeTextView = (TextView) root.findViewById(R.id.joke_one);
+                jokeTextView.setText(joke1);
+            }
+            if (joke2 != null && joke2.length() != 0) {
+                jokeTextView = (TextView) root.findViewById(R.id.joke_two);
+                jokeTextView.setText(joke2);
+            }
+            if (joke3 != null && joke3.length() != 0) {
+                jokeTextView = (TextView) root.findViewById(R.id.joke_three);
+                jokeTextView.setText(joke3);
+            }
+
         }
+        else
+        {
+            String joke1 = intent.getStringExtra(JokeActivity.JOKE_ONE);
+            jokeTextView = (TextView) root.findViewById(R.id.joke_one);
+            if (joke1 != null && joke1.length() != 0) {
+                jokeTextView.setText(joke1);
+            }
+            jokeTextView = (TextView) root.findViewById(R.id.joke_two);
+            jokeTextView.setText("Buy the Paid version for more Jokes !!");
+            jokeTextView = (TextView) root.findViewById(R.id.joke_three);
+            jokeTextView.setVisibility(View.INVISIBLE);
+
+        }
+
         return root ;
     }
 

@@ -2,5 +2,7 @@
     <string name="app_name">JokeDisplayLibrary</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Joke1">This is Joke one</string>
+    <string name="Joke2">This is Joke two</string>
+    <string name="Joke3">This is Joke three</string>
 </resources>
