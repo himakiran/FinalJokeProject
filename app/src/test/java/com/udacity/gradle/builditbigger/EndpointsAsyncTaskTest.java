@@ -4,9 +4,7 @@ import android.content.Context;
 import android.util.Pair;
 
 import org.junit.Test;
-import org.robolectric.Robolectric;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
 /**

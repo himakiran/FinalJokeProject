@@ -1,7 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -16,13 +15,9 @@ import android.widget.Toast;
 
 
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 import com.udacity.gradle.javajokes.JavaJokes;
 import com.udacity.gradle.jokedisplaylibrary.AsyncResponse;
-import com.udacity.gradle.jokedisplaylibrary.JokeActivity;
-import com.udacity.gradle.builditbigger.EndpointsAsyncTask;
 import com.udacity.gradle.jokedisplaylibrary.JokesAsyncTask;
 
 import org.json.JSONArray;
@@ -31,7 +26,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 import static android.widget.Toast.makeText;
 
 public class MainActivity extends AppCompatActivity implements AsyncResponse{
@@ -120,13 +114,14 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse{
 
             Log.d(LOG_TAG, "jokesList : " + jokesList.toString());
             javaJokes = new JavaJokes(jokesList);
-            String joke = javaJokes.getJoke(-1);
-            Intent intent = new Intent(this, JokeActivity.class);
-            intent.putExtra(JokeActivity.JOKE_ONE, joke);
-            intent.putExtra("PAID",false);
+//            String joke = javaJokes.getJoke(-1);
+//            Intent intent = new Intent(this, JokeActivity.class);
+//            intent.putExtra(JokeActivity.JOKE_ONE, joke);
+//            intent.putExtra("PAID",false);
+//
+//            startActivity(intent);
 
-            startActivity(intent);
-            new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Himakiran"));
+            new EndpointsAsyncTask().execute(new Pair<Context, String>(this, javaJokes.getJoke(-1)));
 
         } catch (JSONException e) {
             Log.e(LOG_TAG, e.toString());
