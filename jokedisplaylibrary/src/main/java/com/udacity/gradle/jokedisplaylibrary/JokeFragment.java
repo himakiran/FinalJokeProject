@@ -8,11 +8,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
 
 public class JokeFragment extends Fragment {
+    private ProgressBar spinner;
 
     public JokeFragment() {
         // Required empty public constructor
@@ -34,6 +36,9 @@ public class JokeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_joke, container, false);
         Intent intent = getActivity().getIntent();
         Boolean PAID = intent.getBooleanExtra("PAID",false);
+
+        spinner = (ProgressBar) root.findViewById(R.id.progressBar);
+        spinner.setVisibility(View.VISIBLE);
         if(PAID){
             String joke1 = intent.getStringExtra(JokeActivity.JOKE_ONE);
             String joke2 = intent.getStringExtra(JokeActivity.JOKE_TWO);
@@ -51,6 +56,7 @@ public class JokeFragment extends Fragment {
                 jokeTextView = (TextView) root.findViewById(R.id.joke_three);
                 jokeTextView.setText(joke3);
             }
+            spinner.setVisibility(View.GONE);
 
         }
         else
@@ -64,6 +70,7 @@ public class JokeFragment extends Fragment {
             jokeTextView.setText("Buy the Paid version for more Jokes !!");
             jokeTextView = (TextView) root.findViewById(R.id.joke_three);
             jokeTextView.setVisibility(View.INVISIBLE);
+            spinner.setVisibility(View.GONE);
 
         }
 

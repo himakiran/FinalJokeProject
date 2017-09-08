@@ -21,3 +21,29 @@ allprojects {
         }
     }
 }
+
+task runAppEngine (dependsOn: ":Jokebackend:appengineRun") {
+    project(":Jokebackend").afterEvaluate { backend ->
+        backend.extensions.appengine.daemon = true
+    }
+    doLast {
+        println "started the GCE Backend!"
+    }
+}
+
+task Test (dependsOn: ":app:test") {
+    println "started the test!"
+}
+
+task StopAppEngine (dependsOn: ":Jokebackend:appengineStop") {
+    println "stopping  the test!"
+}
+
+task startTests{
+    dependsOn "runAppEngine"
+    dependsOn "Test"
+    dependsOn "StopAppEngine"
+    doLast {
+        println "executing..."
+    }
+}
