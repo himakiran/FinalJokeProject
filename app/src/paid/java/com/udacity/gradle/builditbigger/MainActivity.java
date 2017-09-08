@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse{
             intent.putExtra("PAID",true);
 
             startActivity(intent);
-            new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Himakiran"));
+            //new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Himakiran"));
 
         } catch (JSONException e) {
             Log.e(LOG_TAG, e.toString());
