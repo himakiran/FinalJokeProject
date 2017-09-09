@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse{
 
     public String LOG_TAG = MainActivity.class.getSimpleName();
     public ArrayList<String> jokesList ;
-    public JavaJokes javaJokes;
+    private JavaJokes javaJokes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

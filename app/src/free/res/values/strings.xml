@@ -5,6 +5,6 @@
     <string name="action_settings">Settings</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="program_version">FREE VERSION</string>
-    <string name="json_url">https://api.icndb.com/jokes/random/3</string>
+    <string name="json_url" translatable="false">https://api.icndb.com/jokes/random/3</string>
     <string name="NoInternet">Internet is not detected !!</string>
 </resources>

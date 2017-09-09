@@ -75,11 +75,6 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse{
 
         JokesAsyncTask ba;
 
-
-        //Toast.makeText(this, "derppp", Toast.LENGTH_SHORT).show();
-
-        //Toast.makeText(this,javaJokes.getJoke(),Toast.LENGTH_SHORT).show();
-
         ba = new JokesAsyncTask();
         ba.delegate = this;
         ConnectivityManager cm =
@@ -109,17 +104,11 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse{
             jokesList = new ArrayList<>(ja.length());
             for (int i = 0; i < ja.length(); i++) {
                 jokesList.add(i, ja.getJSONObject(i).getString("joke"));
-                //Log.d(LOG_TAG,"JokesList object at   "+ i +" : " + ja.getJSONObject(i));
+
             }
 
-            Log.d(LOG_TAG, "jokesList : " + jokesList.toString());
+
             javaJokes = new JavaJokes(jokesList);
-//            String joke = javaJokes.getJoke(-1);
-//            Intent intent = new Intent(this, JokeActivity.class);
-//            intent.putExtra(JokeActivity.JOKE_ONE, joke);
-//            intent.putExtra("PAID",false);
-//
-//            startActivity(intent);
 
             new EndpointsAsyncTask().execute(new Pair<Context, String>(this, javaJokes.getJoke(-1)));
 

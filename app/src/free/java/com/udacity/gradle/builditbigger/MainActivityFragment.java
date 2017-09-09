@@ -34,7 +34,7 @@ public class MainActivityFragment extends Fragment {
         TextView textView = (TextView) root.findViewById(R.id.version);
         Boolean FREE = textView.getText().toString().equals("FREE VERSION");
         Log.i(LOG_TAG,FREE.toString());
-            if(FREE) {
+
                 AdView mAdView = (AdView) root.findViewById(R.id.adView);
                 // Create an ad request. Check logcat output for the hashed device ID to
                 // get test ads on a physical device. e.g.
@@ -45,7 +45,7 @@ public class MainActivityFragment extends Fragment {
                 mAdView.loadAd(adRequest);
 
 
-            }
+
 
         return root;
     }
